@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:body>
+
+        Die Liste enthält #{bean.articleList} Elemente.
+        <br/>
+        <br/>
+
+        <ui:repeat var="test" value="#{bean.articleList}">
+           #{test}<br/>
+        </ui:repeat>
+        <br/>
+        <br/> #{bean.articleNumber}
+
+        <h:outputText value="Die Liste ist leer"
+            rendered="#{bean.count==0}"/>
+
+        <ui:fragment rendered="#{bean.articleList.size()!=0}">
+            Die Liste ist nicht leer
+        </ui:fragment>
+
+    </h:body>
+</html>
