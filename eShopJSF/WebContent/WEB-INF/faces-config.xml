@@ -6,9 +6,21 @@
     version="2.2">
 <managed-bean>
   <description>Verwaltet alle Teilnehmer</description>
-  <managed-bean-name>ShopBean</managed-bean-name>
-  <managed-bean-class>shopBean.shopBean</managed-bean-class>
+  <managed-bean-name>FromDBase</managed-bean-name>
+  <managed-bean-class>shopBean.FromDBase</managed-bean-class>
   <managed-bean-scope>session</managed-bean-scope>
+  
 </managed-bean>
+
+<navigation-rule>
+<from-view-id>books4.xhtml</from-view-id>
+<navigation-case>
+
+<from-outcome>ok</from-outcome>
+<to-view-id>einkaufswagen.xhtml</to-view-id>
+<redirect />
+</navigation-case>
+
+</navigation-rule>
 
 </faces-config>

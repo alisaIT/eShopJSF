@@ -3,7 +3,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
@@ -16,156 +17,164 @@
 
 </h:head>
 
-<h:body class="bg-success">
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<h:button type="button" class="navbar-toggle collapsed"
-				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-				aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</h:button>
-			<a class="navbar-brand" href="#">Brand</a>
-		</div>
-
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-				<li><a href="#">Link</a></li>
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Dropdown <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li role="separator" class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul></li>
-			</ul>
-			<h:form class="navbar-form navbar-left" role="search">
-				<div class="form-group">
-					<h:inputText type="text" class="form-control" placeholder="Search" />
-				</div>
-				
-				<h:button type="submit" class="btn btn-default" value="Submit"></h:button>
-				<span ></span>
-				
-			</h:form>
-			<ul class="nav navbar-nav navbar-right">
-			<div type="button" class="btn btn-default btn-lg" > 
-				<h:button value="Logout">
-					<span class="glyphicon glyphicon-user"> </span>
+<h:body>
+	<div class="bg-success">
+		<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<h:button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</h:button>
-				</div>
-				
-				<ul class="nav navbar-nav navbar-right">
-				<div type="button" class="btn btn-default btn-lg" >
-					<h:button  value="Einkaufswagen">
-						<span class="glyphicon glyphicon-shopping-cart"  aria-hidden="true"
-							> </span>
-							<span class="badge">4</span>
-					</h:button>
-					</div>
+				<a class="navbar-brand" href="#">Brand</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+					<li><a href="#">Link</a></li>
 					
 				</ul>
-			</ul>
+				
+				<ul class="nav navbar-nav navbar-right">
+					<div type="button" class="btn btn-default btn-lg">
+						<h:button value="Logout">
+							<span class="glyphicon glyphicon-user"> </span>
+						</h:button>
+					</div>
+
+					<ul class="nav navbar-nav navbar-right">
+						<div type="button" class="btn btn-default btn-lg">
+							<h:button value="Einkaufswagen">
+								<span class="glyphicon glyphicon-shopping-cart"
+									aria-hidden="true"> </span>
+								<span class="badge">0</span>
+							</h:button>
+						</div>
+
+					</ul>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid --> </nav>
-	<div></div>
-	<!--  <div style="background-image:url(Free-Desktop-Wallpaper-Downloads-P1K.jpg)"></div>-->
-	<div class="text-center">
-		<h2>Hallo Nutzer!</h2>
-		<br />
-		<h3>
-			Bist du bei uns schon regisstriert? <br /> Nein? Dann aber schnell:
+		<!-- /.container-fluid --> </nav>
+		<div></div>
+		<!--  <div style="background-image:url(Free-Desktop-Wallpaper-Downloads-P1K.jpg)"></div>-->
+		<div class="text-center">
+			<h2>Hallo Nutzer!</h2>
 			<br />
-		</h3>
-	</div>
+			<h3>
+				Bist du bei uns schon regisstriert? <br /> Nein? Dann aber schnell:
+				<br />
+			</h3>
+		</div>
 
-	<!-- '################Image###################### -->
-	<!--  <img src="\eShopJSF\faces\Free-Desktop-Wallpaper-Downloads-P1K.jpg" 
+		<!-- '################Image###################### -->
+		<!--  <img src="\eShopJSF\faces\Free-Desktop-Wallpaper-Downloads-P1K.jpg" 
 alt="Responsive image" class="img-circle" size="100"/>-->
-	<h:graphicImage class="img-circle"
-		library="\eShopJSF\WebContent\images" name="image.jpg"></h:graphicImage>
-
-	<h:form>
-		<div class="form-group has-success has-feedback">
-			<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-			<div class="input-group">
-				<span class="input-group-addon">@</span>
-
-
-				<h:inputText type="email" class="form-control" placeholder="Email"
-					id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">#{bean.email}</h:inputText>
-			</div>
-			<span class="glyphicon glyphicon-ok form-control-feedback"
-				aria-hidden="true"></span> <span id="inputGroupSuccess1Status"
-				class="sr-only">(success)</span>
+		<div class="row">
+			<br />
 		</div>
 
-
-
-
-
-
-
-		<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-		<div class="col-sm-10">
-			<h:inputSecret type="password" class="form-control"
-				id="exampleInputPassword1" placeholder="Password">#{bean.userpassword}</h:inputSecret>
-		</div>
-
-
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<div class="checkbox">
-					<label> <h:selectBooleanCheckbox type="checkbox">
-							<br />
-					Ich habe eure AGBs gelesen und akzeptiere sie, oder ich habe keine lust sie zu lesen! 
-					</h:selectBooleanCheckbox>
-					</label>
-					<div />
-					<h:button type="submit" value="Submit" class="btn btn-default"
-						action="list.xhtml"></h:button>
-
+		<div class="row">
+			<div class="text-center">
+				<div class="col-md-3">
+					<br></br>
 				</div>
+				<h:form class="col-md-6">
+
+					<div class="form-group">
+						<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						<div class="col-sm-10">
+
+							<h:inputText type="email" class="form-control" name="mail" 
+								a:placeholder="Email" value="#{dbBean.email}" ></h:inputText>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+						<div class="col-sm-10">
+							<h:inputText type="password" class="form-control"
+								name="pw" value="#{dbBean.userpassword}" a:placeholder="Password"></h:inputText>
+						</div>
+					</div>
+
+					<div class="form-group">
+
+						<div class="col-sm-offset-2 col-sm-10">
+							<div class="checkbox">
+								<label> <h:selectBooleanCheckbox type="checkbox"
+										vlaue="#{dbBean.agb()}" required="true">
+
+									</h:selectBooleanCheckbox> Ich habe eure AGBs gelesen und akzeptiere sie, oder ich habe
+									keine lust sie zu lesen!
+								</label>
+								<div />
+								<div ><br/> </div>
+								<div ><br/> </div>
+							
+								<h:button type="submit" value="Submit" class="btn btn-primary btn-lg"
+									onclick="#{dbBean.register()}" action="list.xhtml"></h:button>
+							</div>
+						</div>
+					</div>
+
+
+
+				</h:form>
 			</div>
 		</div>
-		<br />
-		<br />
-	</h:form>
-
-	<div class="text-center">
-		<h2>Du bist schon ein geschätzter Kunde?</h2>
-		<h3>
-			Was machst du dann noch hier?! <br> Logg dich schnell ein!</br>
-		</h3>
+		<div class="row"><br /></div>
+	<div class="row"><br /></div>
+	<div class="row"><br /></div>
 	</div>
-	<form class="form-inline">
-		<div class="form-group">
-			<label class="sr-only" for="exampleInputEmail3">Email address</label>
-			<h:inputText type="email" class="form-control"
-				id="exampleInputEmail3" placeholder="Email" />
-		</div>
-		<div class="form-group">
-			<label class="sr-only" for="exampleInputPassword3">Password</label>
-			<h:inputSecret type="password" class="form-control"
-				id="exampleInputPassword3" placeholder="Password" />
-		</div>
+	<div >
+	
+	<div class="row">
+		<br />
+	</div>
+	<div class="row">
+		
+			<div class="col-md-3">
+				<br></br>
+			</div>
+			<div class="col-md-6">
+				<div class="text-center">
+					<h2>Du bist schon ein geschätzter Kunde?</h2>
+					<h3>
+						Was machst du dann noch hier?! <br> Logg dich schnell ein!</br>
+					</h3>
+					<div><br></br></div>
+				</div>
+				<div class="col-md-1">
+					<br></br>
+				</div>
+				<form class="form-inline">
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputEmail3">Email
+							address</label>
+						<h:inputText type="email" class="form-control"
+							id="exampleInputEmail3" a:placeholder="Email"
+							value="#{dbBean.email}" />
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="exampleInputPassword3">Password</label>
+						<h:inputText type="password" class="form-control"
+							id="exampleInputPassword3" a:placeholder="Password"
+							value="#{dbBean.userpassword}" />
+					</div>
 
-		<h:button type="submit" value="sing in" class="btn btn-default"></h:button>
-	</form>
-
+					<h:button type="submit" action="dbBase.login()" value="sing in" class="btn btn-default"></h:button>
+				</form>
+			</div>
+		</div>
+	</div>
 </h:body>
 </html>

@@ -19,5 +19,12 @@
 			<attribute name="owner.project.facets" value="jst.jsf"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/bson-3.0.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/bson-3.0.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.faces-api-2.2(1).jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ldap-client-api-0.1-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mongo-java-driver-3.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mongodb-driver-3.0.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mongodb-driver-3.0.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

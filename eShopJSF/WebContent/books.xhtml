@@ -100,19 +100,46 @@
 alt="Responsive image" class="img-circle" size="100"/>-->
 
 
-	<div class="text-center">
+	<div >
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-lg-6">
+				
+				
+				<h:column class="img-thumbnail" height="100">
+				
+					<h:graphicImage height="200" value="/pictures/9780061974618.jpg"
+										></h:graphicImage>
+										<p></p>
+					<h:graphicImage height="200" value="/pictures/9780062194725.jpg"
+										></h:graphicImage>	
+										<p></p>									
+					<h:graphicImage height="200" value="/pictures/9780062194756.jpg"
+										></h:graphicImage>
+										
+										<p></p>
+					<h:graphicImage height="200" value="/pictures/9780689869129.jpg"
+										></h:graphicImage>
+										<p></p>
+					<h:graphicImage height="200" value="/pictures/9780718156497.jpg"
+										></h:graphicImage>
+										<p></p>
+					<h:graphicImage height="200" value="/pictures/9781416914174.jpg"
+										></h:graphicImage>
+										<p></p>
+				</h:column>
+				
+				
+				<h:column>
+				<div class="text-center">
 					<ui:repeat var="test" value="#{dbBean.eintragImDB}">
            #{test}
-           <h:button class="btn btn-default btn-lg" name="Kaufen" value="Kaufen"></h:button>
+           
 
 						<div class="row">
 							<div class="col-xs-6 col-md-3">
 							<a href="#" class="thumbnail"> 
 							
-								
 						
 								
 								</a>
@@ -120,9 +147,15 @@ alt="Responsive image" class="img-circle" size="100"/>-->
 							</div>
 							</div>
 					</ui:repeat>
-					<ui:repeat var="test" value="#{dbBean.bilderList}">
-					<h:graphicImage value="#{test}"
-										></h:graphicImage></ui:repeat>
+					</div>
+					</h:column>
+				
+					<h:column>
+					<ui:repeat > 
+					<h:button class="btn btn-default btn-lg" name="Kaufen" action="#{dbBase.count()}"  ></h:button>
+					</ui:repeat>
+					</h:column>
+					
 				</div>
 			</div>
 			<p>...</p>
@@ -130,8 +163,9 @@ alt="Responsive image" class="img-circle" size="100"/>-->
 				
 			</p>
 		</div>
+		
 		<h:form>
-
+  <h:button class="btn btn-default btn-lg" name="Kaufen" action="#{dbBase.count()}" ></h:button>
 			<br />
 			<br />
 		</h:form>
