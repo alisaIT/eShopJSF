@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous" />
+
+<h:head>
+	<!-- class="navbar navbar-default" 
+	class="bg-success"-->
+
+
+</h:head>
+
+<h:body class="bg-success">
+	<!-- #####''''''''''''HEADER''''' -->
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			<h:button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</h:button>
+
+			<div class="active">
+				<a class="navbar-brand" href="#">MyBoockShop</a>
+			</div>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Link</a></li>
+
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<div type="button" class="btn btn-default btn-lg">
+					<h:button value="Logout">
+						<span class="glyphicon glyphicon-user"> </span>
+					</h:button>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<div type="button" class="btn btn-default btn-lg">
+						<h:commandButton value="Einkaufswagen"
+							action="einkaufswagen.xhtml"></h:commandButton>
+						<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">
+						</span> <span class="badge">#{dbBean.click}</span>
+
+
+					</div>
+
+				</ul>
+			</ul>
+
+		</div>
+
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid --> </nav>
+	<div></div>
+
+	<!-- ''''''''''ende Header'''''''''''''' -->
+	<!--  <div style="background-image:url(Free-Desktop-Wallpaper-Downloads-P1K.jpg)"></div>-->
+	<div class="text-center">
+		<h2>Hallo geschätzter Kunde!</h2>
+		<br />
+		<h3>
+			Unten siehst Du die Bücher. <br /> Klicke darauf, wenn du das Buch in
+			den Einkaufswagen legen willst<br /> <br />
+		</h3>
+	</div>
+
+	<!-- '################Image###################### -->
+	<!--  <img src="\eShopJSF\faces\Free-Desktop-Wallpaper-Downloads-P1K.jpg" 
+alt="Responsive image" class="img-circle" size="100"/>-->
+
+
+	<div>
+		<h:form>
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-lg-6">
+
+						<div class="text-center">
+							<div class="img-thumbnail" height="100">
+								<div>
+									<br></br>
+								</div>
+								<h:commandLink
+									action="#{dbBean.writeEinkaufToDB(9780062194725)}">
+									<h:graphicImage height="400" width="300"
+										value="/pictures/9780062194725.jpg"></h:graphicImage>
+								</h:commandLink>
+
+
+								<div>
+									<h:outputLabel>
+										<h3>
+											<span class="label label-info">Preis: 10,89 €</span>
+										</h3>
+									</h:outputLabel>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<h:commandLink
+									action="#{dbBean.writeEinkaufToDB(9780062194756)}">
+									<h:graphicImage height="400" width="300"
+										value="/pictures/9780062194756.jpg"></h:graphicImage>
+								</h:commandLink>
+								<div>
+									<h:outputLabel>
+										<h3>
+											<span class="label label-info">Preis: 16,99 €</span>
+										</h3>
+									</h:outputLabel>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<h:commandLink
+									action="#{dbBean.writeEinkaufToDB(9780689869129)}">
+									<h:graphicImage height="400" width="300"
+										value="/pictures/9780689869129.jpg"></h:graphicImage>
+								</h:commandLink>
+
+								<div>
+									<h:outputLabel>
+										<h3>
+											<span class="label label-info">Preis: 20,09 €</span>
+										</h3>
+									</h:outputLabel>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<div>
+									<br></br>
+								</div>
+
+								<h:commandLink
+									action="#{dbBean.writeEinkaufToDB(9780718156497)}">
+									<h:graphicImage height="400" width="300"
+										value="/pictures/9780718156497.jpg"></h:graphicImage>
+								</h:commandLink>
+								<div>
+									<h:outputLabel>
+										<h3>
+											<span class="label label-info">Preis: 22,32 €</span>
+										</h3>
+									</h:outputLabel>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<h:commandLink
+									action="#{dbBean.writeEinkaufToDB(9781416914174)}">
+									<h:graphicImage height="400" width="300"
+										value="/pictures/9781416914174.jpg"></h:graphicImage>
+								</h:commandLink>
+								<div>
+									<h:outputLabel>
+										<h3>
+											<span class="label label-info">Preis: 22,45 €</span>
+										</h3>
+									</h:outputLabel>
+								</div>
+								<div>
+									<br></br>
+								</div>
+								<div>
+									<br></br>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				
+			</div>
+		</h:form>
+		
+		<div>
+			<h:form>
+				<div class="jumbotron">
+					<div class="row">
+						<div class="col-lg-6">
+
+							<div class="text-center">
+								<div class="img-thumbnail" height="100">
+<h3>Einkaufswagen</h3>
+
+									<h:form>
+									
+										<ui:repeat var="test" value="#{dbBean.einkaufWagen}">#{test}
+										<h:button class="btn btn-default btn-md" value="Delete"
+											></h:button>
+											<br></br>
+										</ui:repeat>
+										
+									</h:form>
+								</div>
+								</div>
+							
+						
+						</div>
+					</div>
+				</div>
+
+			</h:form>
+			</div>
+			<h:form>
+			<div class="text-center">
+			<h3>Der zu Zahlende Betrag ist: #{dbBean.gesamtpreis} €</h3>
+				<h:button class="btn btn-default btn-lg" value="Kaufen"
+					></h:button>
+				<br />
+				<br />
+				</div>
+				
+			</h:form>
+
+
+			<!-- ''''''Seiten '''' der -->
+
+		</div>
+</h:body>
+</html>

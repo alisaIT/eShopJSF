@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous" />
+
+<h:head>
+	<!-- class="navbar navbar-default" 
+	class="bg-success"-->
+
+
+</h:head>
+
+<h:body class="bg-success">
+	<!-- #####''''''''''''HEADER''''' -->
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+
+			<h:button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+				aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</h:button>
+
+			<div class="active">
+				<a class="navbar-brand" href="#">MyBoockShop</a>
+			</div>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Link</a></li>
+
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<div type="button" class="btn btn-default btn-lg">
+					<h:button value="Logout">
+						<span class="glyphicon glyphicon-user"> </span>
+					</h:button>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<div type="button" class="btn btn-default btn-lg">
+						<h:button value="Einkaufswagen">
+							<span class="glyphicon glyphicon-shopping-cart"
+								aria-hidden="true"> </span>
+							<span class="badge">#{dbBean.coutWasImWagen()}</span>
+						</h:button>
+					</div>
+
+				</ul>
+			</ul>
+
+		</div>
+
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid --> </nav>
+	<div></div>
+
+	<!-- ''''''''''ende Header'''''''''''''' -->
+	<!--  <div style="background-image:url(Free-Desktop-Wallpaper-Downloads-P1K.jpg)"></div>-->
+	<div class="text-center">
+		<h2>Hallo Nutzer!</h2>
+		<br />
+		<h3>
+			Bist du bei uns schon regisstriert? <br /> Nein? Dann aber schnell:
+			<br />
+		</h3>
+	</div>
+
+	<!-- '################Image###################### -->
+	<!--  <img src="\eShopJSF\faces\Free-Desktop-Wallpaper-Downloads-P1K.jpg" 
+alt="Responsive image" class="img-circle" size="100"/>-->
+
+
+	<div>
+		<h:form>
+			<div class="jumbotron">
+				<div class="row">
+					<div class="col-lg-6">
+
+						<div class="text-center">
+							<div class="img-thumbnail" height="100">
+
+								<h:form>
+									<ui:repeat var="test" value="#{dbBean.einkaufWagen}">#{test}
+										<h:button class="btn btn-default btn-md" value="Delete" onclick="#{dbBean.deleteFromDB(isbn)}"></h:button>
+										<br></br>
+									</ui:repeat>
+								</h:form>
+							</div>
+						</div>
+						<p>...</p>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</h:form>
+		<h:form>
+			<h:button class="btn btn-default btn-lg" name="Kaufen"
+				onclick="#{dbBase.count()}"></h:button>
+			<br />
+			<br />
+		</h:form>
+
+		<div class="text-center">
+			<h2>Du bist schon ein geschätzter Kunde?</h2>
+			<h3>
+				Was machst du dann noch hier?! <br> Logg dich schnell ein!</br>
+			</h3>
+		</div>
+		<form class="form-inline"></form>
+
+		<!-- ''''''Seiten '''' der -->
+
+	</div>
+</h:body>
+</html>

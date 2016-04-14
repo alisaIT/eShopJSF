@@ -1,20 +1,5 @@
 package shopBean;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import com.mongodb.BasicDBObject;
-import com.mongodb.Block;
-import com.mongodb.DB;
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.ServerAddress;
@@ -35,24 +20,72 @@ import java.util.Locale;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-//import javax.faces.bean.ManagedBean;
-//import javax.faces.bean.SessionScoped;
+import static java.util.Arrays.asList;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.io.IOException;
+import java.io.Serializable;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.Mongo;
+
+import org.bson.Document;
+import com.mongodb.Block;
+import com.mongodb.client.FindIterable;
+
+import static com.mongodb.client.model.Filters.*;
+import static com.mongodb.client.model.Sorts.ascending;
+import static java.util.Arrays.asList;
+import java.io.IOException;
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ComponentSystemEvent;
+import static java.util.Arrays.asList;
 
 
 
-
-@ManagedBean(name = "dbBean", eager = true)
-//@ManagedBean(name = "dbBean")
-
-@SessionScoped
-
-public class FromDBase implements Serializable {
-
-
+public class MongoDBVerbindung implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	String mail;
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getPw() {
+		return pw;
+	}
+
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+
+	String pw;
 	
 	int click = 0;
 	double gesamtpreis=0.0;
@@ -89,49 +122,19 @@ public class FromDBase implements Serializable {
 	protected MongoCollection<Document> collection;
 	protected Mongo mongo;
 
-	public void register(){
-		System.out.println("register test");}
-	public void login(){
-		System.out.println("login test");}
-	
 	public ArrayList<String> listeBuecher = new ArrayList<String>();
-	String email;
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPw() {
-		return pw;
-	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-
-	public void setUserpassword(String userpassword) {
-		this.userpassword = userpassword;
-	}
-
-	String pw;
 
 	public MongoDatabase openDB() throws IOException {
 
-		MongoClient mongoC = new MongoClient("localhost", 27017);
+		//MongoClient mongoC = new MongoClient("localhost", 27017);
+		//MongoClient mongoC = new MongoClient(Arrays.asList(new ServerAddress("192.168.178.37", 27017),new ServerAddress("192.168.178.29", 27017)));
 		
-
-	//	MongoClient mongoC = new MongoClient(Arrays.asList(new ServerAddress("192.168.178.37", 27017),new ServerAddress("192.168.178.29", 27017)));
-		//MongoClient mongoC = new MongoClient(new MongoClientURI("mongodb://192.168.178.37:27017,192.168.178.29:27017/?replicaSet=rs0"));
+		MongoClient mongoC = new MongoClient(new MongoClientURI("mongodb://192.168.178.37:27017,192.168.178.29:27017/?replicaSet=rs0"));
 		MongoDatabase db = mongoC.getDatabase("dbTest");
-		
+
 		return db;
 	}
-public void coutWasImWagen(){
-	System.out.println("test");
-}
+
 	public boolean connectDBCollection(String collectionName) {
 		if (null == collectionName || collectionName.isEmpty()) {
 			return false;
@@ -155,7 +158,7 @@ public void coutWasImWagen(){
 		FindIterable<Document> iterableI;
 		// db.getCollection("testC4").find().
 
-		// collection testC7 has actual data
+		// collection testC8 has actual data
 
 		iterableI = getAllDocuments("testC8", db);
 		MongoCursor<Document> iter = iterableI.iterator();
@@ -178,13 +181,6 @@ public void coutWasImWagen(){
 			}
 		System.out.println("gesamtpreis ist" +gesamtpreis);
 	}
-	public void test() {
-		System.out.println("test bean geht!");
-		
-	}
-	public void test2(String test) {
-		System.out.println("test bean geht mit string übergabe!");
-	}
 	
 	public void writeEinkaufToDB(String blub2) throws IOException {
 		MongoDatabase db = openDB();
@@ -193,7 +189,7 @@ public void coutWasImWagen(){
 		FindIterable<Document> iterableI;
 		// db.getCollection("testC4").find().
 
-		// collection testC8 has actual data
+		// collection testC7 has actual data
 
 		iterableI = getAllDocuments("testC8", db);
 		MongoCursor<Document> iter = iterableI.iterator();
@@ -239,7 +235,7 @@ public void coutWasImWagen(){
 
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
 
-		db.getCollection("testC8")
+		db.getCollection("dbTest")
 				.insertOne(new Document("user", new Document().append("user", userMail).append("userPW", userPw)));
 		System.out.println("wurde ausgeführt einfügen user");
 
@@ -274,11 +270,12 @@ public void coutWasImWagen(){
 		// "mkyong-5", db);
 		// MongoClient mongoC = new MongoClient( "localhost" , 27017 );
 		// MongoDatabase db = mongoC.getDatabase("test3");
+		//try
+		//MongoClient mongoC = new MongoClient("localhost", 27017);
+		//MongoClient mongoC = new MongoClient(Arrays.asList(new ServerAddress("192.168.178.37", 27017),new ServerAddress("192.168.178.29", 27017)));
 		
-		//hier ist try
-		MongoClient mongoC = new MongoClient("localhost", 27017);
-		//MongoClient mongoC = new MongoClient(Arrays.asList( new ServerAddress("192.168.178.37", 27017),new ServerAddress("192.168.178.29", 27017)));
-		//MongoClient mongoC = new MongoClient(new MongoClientURI("mongodb://192.168.178.37:27017,192.168.178.29:27017/?replicaSet=rs0"));MongoDatabase db = mongoC.getDatabase("dbTest");
+		MongoClient mongoC = new MongoClient(new MongoClientURI("mongodb://192.168.178.37:27017,192.168.178.29:27017/?replicaSet=rs0"));
+		MongoDatabase db = mongoC.getDatabase("dbTest");
 
 		iterable = getAllDocuments("testC8", db);
 		MongoCursor<Document> iter = iterable.iterator();
@@ -364,10 +361,4 @@ public void coutWasImWagen(){
 		mongo.close();
 	}
 
-	String userpassword = "";
-	public String getUserpassword() {
-		return userpassword;
-	}
-	
-	
 }
